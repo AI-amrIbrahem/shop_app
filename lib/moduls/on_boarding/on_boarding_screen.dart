@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
-import 'package:shop_app/logic_state/on_boarding_cubit/on_boarding_cubit.dart';
 import 'package:shop_app/models/on_boarding_model.dart';
 import 'package:shop_app/moduls/login/login_screen.dart';
 import 'package:shop_app/resoruces/app_colors.dart';
 import 'package:shop_app/resoruces/strings.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+
+import 'on_boarding_cubit/on_boarding_cubit.dart';
 
 class onBoardingScreen extends StatelessWidget {
   const onBoardingScreen({Key? key}) : super(key: key);
@@ -43,12 +44,10 @@ class onBoardingScreen extends StatelessWidget {
                   Expanded(
                     child: PageView.builder(
                       itemBuilder: (context, index) {
-                        if (index ==
-                            (OnBoardingCubit.get(context)
-                                    .onBoardingScreens
-                                    .length -
-                                1)) {
+                        if (index == (OnBoardingCubit.get(context).onBoardingScreens.length - 1)) {
                           OnBoardingCubit.get(context).isLast = true;
+                        }else{
+                          OnBoardingCubit.get(context).isLast = false;
                         }
                         return Padding(
                           padding: const EdgeInsets.all(20.0),
