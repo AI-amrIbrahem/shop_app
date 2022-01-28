@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:lottie/lottie.dart';
+import 'package:shop_app/data/prefrence/app_pref.dart';
 import 'package:shop_app/models/on_boarding_model.dart';
 import 'package:shop_app/moduls/login/login_screen.dart';
 import 'package:shop_app/resoruces/app_colors.dart';
@@ -12,6 +13,14 @@ import 'on_boarding_cubit/on_boarding_cubit.dart';
 class onBoardingScreen extends StatelessWidget {
   const onBoardingScreen({Key? key}) : super(key: key);
 
+  void submit(context){
+    CashHelper.saveData(key: AppStrings.onBoardingKey, value: true);
+    Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => LoginScreen(),
+        ));
+  }
   @override
   Widget build(BuildContext context) {
     var controller = PageController();
@@ -22,11 +31,7 @@ class onBoardingScreen extends StatelessWidget {
           actions: [
             TextButton(
               onPressed: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => LoginScreen(),
-                    ));
+                submit(context);
               },
               child: Text(
                 AppStrings.skipOnBoarding,
@@ -74,11 +79,7 @@ class onBoardingScreen extends StatelessWidget {
                       FloatingActionButton(
                           onPressed: () {
                             if (OnBoardingCubit.get(context).isLast) {
-                              Navigator.pushReplacement(
-                                  context,
-                                  MaterialPageRoute(
-                                    builder: (context) => LoginScreen(),
-                                  ));
+                              submit(context);
                             }
                             controller.nextPage(
                                 duration: Duration(milliseconds: 700),

@@ -27,5 +27,11 @@ class AppStrings{
 
   static var register="Register first ..";
 
+  static var onBoardingKey="onBoarding";
+
+  static var tokenKey="myToken";
+
+  static var appBarTitleLayout = "A Shop";
+
 
 }
