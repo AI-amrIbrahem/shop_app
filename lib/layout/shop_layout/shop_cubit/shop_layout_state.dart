@@ -16,3 +16,7 @@ class ShopErrorState extends ShopLayoutState {
 
   ShopErrorState(this.error);
 }
+
+class ShopSuccessFavouriteState extends ShopLayoutState {}
+
+class ShopSuccessErrorState extends ShopLayoutState {}

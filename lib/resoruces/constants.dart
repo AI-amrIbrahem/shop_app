@@ -8,7 +8,9 @@ class Constants {
 
   static var loginUrl= "login";
   static var homeUrl= "home";
-  static var categoryUrl= "categoriews";
+  static var categoryUrl= "categories";
+  static var favouriteUrl= "favorites";
+
 
 
   static void LogOut(context){

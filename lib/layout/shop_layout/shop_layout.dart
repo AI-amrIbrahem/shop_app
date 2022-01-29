@@ -41,7 +41,7 @@ class ShopLayout extends StatelessWidget {
               },
               items: [
                 BottomNavigationBarItem(
-                    icon: Icon(Icons.home), label: "product"),
+                    icon: Icon(Icons.home), label: "home"),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.apps), label: "category"),
                 BottomNavigationBarItem(
