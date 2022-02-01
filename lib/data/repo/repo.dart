@@ -4,6 +4,7 @@ import 'package:shop_app/data/remote/dio_helper.dart';
 import 'package:shop_app/models/category_model.dart';
 import 'package:shop_app/models/favorite_model.dart';
 import 'package:shop_app/models/home_model.dart';
+import 'package:shop_app/models/login_model.dart';
 import 'package:shop_app/resoruces/constants.dart';
 
 class Repo{
@@ -47,6 +48,11 @@ class Repo{
     Response response = await dio.getData(url: Constants.favouriteUrl,token: token);
     print(response.data);
     return FavoriteModel.fromJson(response.data);
+  }
+
+  Future<LoginModel> getUserModel(token) async{
+    Response response = await dio.getData(url: Constants.profileUrl,token: token);
+    return LoginModel.fromJson(response.data);
   }
 
 }

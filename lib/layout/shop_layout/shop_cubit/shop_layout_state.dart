@@ -20,3 +20,6 @@ class ShopErrorState extends ShopLayoutState {
 class ShopSuccessFavouriteState extends ShopLayoutState {}
 
 class ShopSuccessErrorState extends ShopLayoutState {}
+
+class ShopProfileSuccessState extends ShopLayoutState {}
+

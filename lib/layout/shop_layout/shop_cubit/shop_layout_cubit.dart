@@ -7,6 +7,7 @@ import 'package:shop_app/data/repo/repo.dart';
 import 'package:shop_app/models/category_model.dart';
 import 'package:shop_app/models/favorite_model.dart';
 import 'package:shop_app/models/home_model.dart';
+import 'package:shop_app/models/login_model.dart';
 import 'package:shop_app/moduls/category/category_screen.dart';
 import 'package:shop_app/moduls/favourite/favourite_screen.dart';
 import 'package:shop_app/moduls/products/product_screen.dart';
@@ -64,7 +65,7 @@ class ShopLayoutCubit extends Cubit<ShopLayoutState> {
   void changeFavourite(int id){
     repo.changeFavourite(id, CashHelper.getData(key:  AppStrings.tokenKey)).then((value) {
       getFavoritesScreen();
-      
+
       favourites[id] = value.data['message']==  "تمت الإضافة بنجاح" ?true :false;
       emit(ShopSuccessFavouriteState());
     }).catchError((error){
@@ -83,5 +84,20 @@ class ShopLayoutCubit extends Cubit<ShopLayoutState> {
       emit(ShopErrorState(error.toString()));
     });
   }
+
+  LoginModel? loginModel;
+  void getUserData(){
+    emit(ShopSuccessState());
+    repo.getUserModel(CashHelper.getData(key:  AppStrings.tokenKey)).then((value) {
+      loginModel = value;
+      print(value);
+      emit(ShopProfileSuccessState());
+    }).catchError((error){
+      print(error.toString());
+      emit(ShopErrorState(error.toString()));
+    });
+  }
+
+
 
 }

@@ -10,6 +10,7 @@ class Constants {
   static var homeUrl= "home";
   static var categoryUrl= "categories";
   static var favouriteUrl= "favorites";
+  static var profileUrl= "profile";
 
 
 
