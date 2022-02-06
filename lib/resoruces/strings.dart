@@ -33,5 +33,20 @@ class AppStrings{
 
   static var appBarTitleLayout = "A Shop";
 
+  static var registerText = "Register";
+
+  static String registerSub = "register now to browse our hot offers";
+
+  static var nameValidEmail = "please enter your name";
+
+  static var name = "Name";
+
+  static var phone = "Phone";
+
+  static var phoneValidEmail = "please enter your phone";
+
+  static String HaveAccount = "already have an account";
+
+
 
 }

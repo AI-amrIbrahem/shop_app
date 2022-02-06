@@ -27,6 +27,15 @@ class Repo{
     });
   }
 
+  Future<Response> register(String email,String password,String name,String phone)async{
+    return await dio.postData(url: Constants.registerUrl, data: {
+      'email':email,
+      'password':password,
+      'name':name,
+      'phone':phone
+    });
+  }
+
   Future<HomeModel> getHomeData(token)async{
     Response response = await dio.getData(url: Constants.homeUrl,token: token);
 

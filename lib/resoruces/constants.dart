@@ -11,6 +11,7 @@ class Constants {
   static var categoryUrl= "categories";
   static var favouriteUrl= "favorites";
   static var profileUrl= "profile";
+  static var registerUrl= "register";
 
 
 
